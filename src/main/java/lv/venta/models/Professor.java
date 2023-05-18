@@ -53,7 +53,7 @@ public class Professor {
 	@ToString.Exclude
 	@ManyToMany
 	@JoinTable(
-	  name = "professor_courses", 
+	  name = "prof_course_table", 
 	  joinColumns = @JoinColumn(name = "idp"), 
 	  inverseJoinColumns = @JoinColumn(name = "idc"))
 	private Collection<Course> courses;
