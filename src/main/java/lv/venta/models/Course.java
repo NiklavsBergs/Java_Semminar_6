@@ -61,6 +61,15 @@ public class Course {
 		this.creditPoints = creditPoints;
 		this.professors = professors;
 	}
+	
+	public void addProfessor(Professor professor) throws Exception {
+		if(professor!=null) {
+			professors.add(professor);
+		}
+		else {
+			throw (new Exception("Invalid professor"));
+		}
+	}
 
 	
 	

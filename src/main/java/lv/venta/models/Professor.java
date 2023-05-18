@@ -64,5 +64,14 @@ public class Professor {
 		this.degree = degree;
 	}
 	
+	public void addCourse(Course course) throws Exception {
+		if(course!=null) {
+			courses.add(course);
+		}
+		else {
+			throw (new Exception("Invalid course"));
+		}
+	}
+	
 	
 }

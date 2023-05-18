@@ -1,5 +1,7 @@
 package lv.venta;
 
+import java.util.Collection;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -40,10 +42,14 @@ public class JavaSemminar6Application {
 				stRepo.save(s1);
 				stRepo.save(s2);
 				
-				Course c1 = new Course("Haosa teorija", 4, p1);
-				Course c2 = new Course("Ekonomika", 2, p2);
+				Course c1 = new Course("Haosa teorija", 4, (Collection<Professor>) p1);
+				Course c2 = new Course("Matematika", 2, (Collection<Professor>) p1);
+				Course c3 = new Course("Ekonomika", 2, (Collection<Professor>) p2);
+				Course c4 = new Course("Ekonomika2", 2, (Collection<Professor>) p2);
 				coRepo.save(c1);
 				coRepo.save(c2);
+				coRepo.save(c3);
+				coRepo.save(c4);
 			
 				grRepo.save(new Grade(5, s1, c1));
 				grRepo.save(new Grade(7, s1, c2));
