@@ -46,6 +46,7 @@ public class Course {
 	private int creditPoints;
 	
 	@OneToMany(mappedBy="course")
+	@ToString.Exclude
     private Collection<Grade> grades;
 	
 	@OneToOne
