@@ -1,6 +1,6 @@
 package lv.venta.models;
 
-import java.util.Set;
+import java.util.Collection;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -46,7 +46,7 @@ public class Course {
 	private int creditPoints;
 	
 	@OneToMany(mappedBy="course")
-    private Set<Grade> grades;
+    private Collection<Grade> grades;
 	
 	@OneToOne
 	@JoinColumn(name = "Idp")
@@ -54,10 +54,13 @@ public class Course {
 
 	public Course(
 			@Size(min = 3, max = 50) @Pattern(regexp = "[A-Z]{1}[a-z\\ ]+", message = "Only latin letters") @NotNull String title,
-			@Min(1) @Max(20) int creditPoints) {
+			@Min(1) @Max(20) int creditPoints, Professor professor) {
 		this.title = title;
 		this.creditPoints = creditPoints;
+		this.professor = professor;
 	}
+
+	
 	
 	
 }
