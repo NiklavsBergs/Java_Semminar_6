@@ -1,10 +1,13 @@
 package lv.venta.models;
 
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -38,6 +41,9 @@ public class Student {
 	@Pattern(regexp = "[A-Z]{1}[a-z\\ ]+", message = "Only latin letters")
 	@NotNull
 	private String surname;
+	
+	@OneToMany(mappedBy="student_table")
+    private Set<Grade> grades;
 
 	public Student(
 			@Size(min = 3, max = 30) @Pattern(regexp = "[A-Z]{1}[a-z\\ ]+", message = "Only latin letters") @NotNull String name,

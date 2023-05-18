@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -26,13 +28,21 @@ public class Grade {
 	@Setter(value = AccessLevel.NONE)
 	private long idg;
 	
-	@Column(name = "Value")
+	@Column(name = "gvalue")
 	@Min(0)
 	@Max(10)
-	private int value;
+	private int gvalue;
+	
+	@ManyToOne
+    @JoinColumn(name="idst")
+    private Student student;
+	
+	@ManyToOne
+	@JoinColumn(name="idc")
+	private Course course;
 
 	public Grade(@Min(0) @Max(10) int value) {
-		this.value = value;
+		this.gvalue = value;
 	}
 	
 	
