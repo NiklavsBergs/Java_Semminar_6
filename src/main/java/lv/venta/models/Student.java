@@ -1,6 +1,6 @@
 package lv.venta.models;
 
-import java.util.Set;
+import java.util.Collection;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,11 +24,11 @@ import lombok.ToString;
 @ToString
 public class Student {
 
-	@Column(name = "Idst")
+	@Column(name = "Ids")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
-	private long idst;
+	private long ids;
 	
 	@Column(name = "Name")
 	@Size(min = 3, max = 30)
@@ -42,8 +42,8 @@ public class Student {
 	@NotNull
 	private String surname;
 	
-	@OneToMany(mappedBy="student_table")
-    private Set<Grade> grades;
+	@OneToMany(mappedBy="student")
+    private Collection<Grade> grades;
 
 	public Student(
 			@Size(min = 3, max = 30) @Pattern(regexp = "[A-Z]{1}[a-z\\ ]+", message = "Only latin letters") @NotNull String name,
