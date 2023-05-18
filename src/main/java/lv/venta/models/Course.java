@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -49,16 +50,16 @@ public class Course {
 	@ToString.Exclude
     private Collection<Grade> grades;
 	
-	@OneToOne
-	@JoinColumn(name = "Idp")
-	private Professor professor;
+	
+	@ManyToMany(mappedBy = "courses")
+	Collection<Professor> professors;
 
 	public Course(
 			@Size(min = 3, max = 50) @Pattern(regexp = "[A-Z]{1}[a-z\\ ]+", message = "Only latin letters") @NotNull String title,
-			@Min(1) @Max(20) int creditPoints, Professor professor) {
+			@Min(1) @Max(20) int creditPoints, Collection<Professor> professors) {
 		this.title = title;
 		this.creditPoints = creditPoints;
-		this.professor = professor;
+		this.professors = professors;
 	}
 
 	
