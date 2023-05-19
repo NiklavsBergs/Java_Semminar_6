@@ -17,6 +17,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -25,6 +26,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
 public class Professor {
 	
 	@Column(name = "Idp")
@@ -50,12 +52,8 @@ public class Professor {
 	private Degree degree;
 	
 	//@OneToOne(mappedBy = "professor")
+	@ManyToMany(mappedBy = "professors")
 	@ToString.Exclude
-	@ManyToMany
-	@JoinTable(
-	  name = "prof_course_table", 
-	  joinColumns = @JoinColumn(name = "idp"), 
-	  inverseJoinColumns = @JoinColumn(name = "idc"))
 	private Collection<Course> courses = new ArrayList<>();
 
 	public Professor(String name, String surname, Degree degree) {
@@ -64,12 +62,15 @@ public class Professor {
 		this.degree = degree;
 	}
 	
-	public void addCourse(Course course) throws Exception {
-		if(course!=null) {
+	public void addCourse(Course course){
+		if(!courses.contains(course)) {
 			courses.add(course);
 		}
-		else {
-			throw (new Exception("Invalid course"));
+	}
+	
+	public void removeCourse(Course course){
+		if(courses.contains(course)) {
+			courses.remove(course);
 		}
 	}
 	

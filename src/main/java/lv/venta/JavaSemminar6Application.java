@@ -1,6 +1,8 @@
 package lv.venta;
 
 import java.util.Collection;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -34,18 +36,32 @@ public class JavaSemminar6Application {
 				
 				Professor p1 = new Professor("Juris", "Zagars", Degree.phd);
 				Professor p2 = new Professor("Dimitrijs", "Smirnovs", Degree.phd);
+				Professor p3 = new Professor("Karina", "Skirmante", Degree.mg);
 				prRepo.save(p1);
 				prRepo.save(p2);
+				prRepo.save(p3);
 				
 				Student s1 = new Student("Janis", "Berzins");
 				Student s2 = new Student("Baiba", "Kalnina");
 				stRepo.save(s1);
 				stRepo.save(s2);
 				
-				Course c1 = new Course("Haosa teorija", 4, (Collection<Professor>) p1);
-				Course c2 = new Course("Matematika", 2, (Collection<Professor>) p1);
-				Course c3 = new Course("Ekonomika", 2, (Collection<Professor>) p2);
-				Course c4 = new Course("Ekonomika2", 2, (Collection<Professor>) p2);
+				
+				Course c1 = new Course("Haosateorija", 4, new ArrayList<>(Arrays.asList(p1)));
+				Course c2 = new Course("Ekonomika", 2, new ArrayList<>(Arrays.asList(p2)));
+				Course c3 = new Course("Java", 2, new ArrayList<>(Arrays.asList(p2, p3)));
+				Course c4 = new Course("Dabaszinatnes", 2, new ArrayList<>(Arrays.asList(p3)));
+				coRepo.save(c1);
+				coRepo.save(c2);
+				coRepo.save(c3);
+				coRepo.save(c4);
+				
+				c1.addProfessor(p1);
+				c2.addProfessor(p2);
+				c3.addProfessor(p2);
+				c3.addProfessor(p3);
+				c4.addProfessor(p1);
+				
 				coRepo.save(c1);
 				coRepo.save(c2);
 				coRepo.save(c3);
