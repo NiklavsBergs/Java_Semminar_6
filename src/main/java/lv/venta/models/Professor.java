@@ -1,7 +1,7 @@
 package lv.venta.models;
 
 import java.util.Collection;
-
+import java.util.ArrayList;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -56,7 +56,7 @@ public class Professor {
 	  name = "prof_course_table", 
 	  joinColumns = @JoinColumn(name = "idp"), 
 	  inverseJoinColumns = @JoinColumn(name = "idc"))
-	private Collection<Course> courses;
+	private Collection<Course> courses = new ArrayList<>();
 
 	public Professor(String name, String surname, Degree degree) {
 		this.name = name;
