@@ -1,8 +1,9 @@
 package lv.venta.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
-public class Controller {
+public class FilteringController {
 
 	@GetMapping(value="/showAllStudents")
 	public String getAllStudents(){
@@ -23,7 +24,18 @@ public class Controller {
 	}
 	
 	@GetMapping(value="/showAllGrades")
-	public String getAllgrades(){
+	public String getAllGrades(){
+		
+		return"grades-page";
+	}
+	
+	@GetMapping(value="/showAllGradesByStudent")
+	public String getGradesByStudent(){
+		
+		return"grades-page";
+	}
+	@PostMapping(value="/showAllGradesByStudent")
+	public String postGradesByStudent(){
 		
 		return"grades-page";
 	}

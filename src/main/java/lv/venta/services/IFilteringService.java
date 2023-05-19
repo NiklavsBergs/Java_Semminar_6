@@ -13,8 +13,8 @@ public interface IFilteringService {
 	ArrayList<Course> retrieveAllCourse();
 	ArrayList<Grade> retrieveAllGrades();
 	
-	ArrayList<Grade> retrieveGradesByStudentId(long id);
-	ArrayList<Course> retrieveCoursesByStudentId(long id);
-	ArrayList<Course> retrieveCoursesByProfessorId(long id);
-	float calculateAVGGradeInCourseId(long id);
+	ArrayList<Grade> retrieveGradesByStudentId(long id) throws Exception;
+	ArrayList<Course> retrieveCoursesByStudentId(long id) throws Exception;
+	ArrayList<Course> retrieveCoursesByProfessorId(long id) throws Exception;
+	float calculateAVGGradeInCourseId(long id) throws Exception;
 }
