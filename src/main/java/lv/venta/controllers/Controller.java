@@ -22,9 +22,9 @@ public class Controller {
 		return"courses-page";
 	}
 	
-	@GetMapping(value="/showAllCourses")
-	public String getAllCourses(){
+	@GetMapping(value="/showAllGrades")
+	public String getAllgrades(){
 		
-		return"courses-page";
+		return"grades-page";
 	}
 }
