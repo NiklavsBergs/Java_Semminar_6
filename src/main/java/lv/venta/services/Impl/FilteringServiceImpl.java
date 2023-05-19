@@ -43,7 +43,7 @@ public class FilteringServiceImpl implements IFilteringService{
 	}
 
 	@Override
-	public ArrayList<Course> retrieveAllCourse() {
+	public ArrayList<Course> retrieveAllCourses() {
 		// TODO Auto-generated method stub
 		return (ArrayList<Course>) courseRepo.findAll();
 	}

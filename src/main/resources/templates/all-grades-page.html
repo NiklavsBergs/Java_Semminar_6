@@ -1,0 +1,11 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<body>
+		<table>
+			<tr th:each="temp : ${grades}">
+				<td th:text="${temp.getIdg()}"> </td>
+				<td th:text="${temp.getGvalue()}"> </td>
+			</tr>
+		</table>
+	</body>
+</html>

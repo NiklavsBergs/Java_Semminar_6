@@ -1,0 +1,12 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<body>
+		<table>
+			<tr th:each="temp : ${courses}">
+				<td th:text="${temp.getIdc()}"> </td>
+				<td th:text="${temp.getTitle()}"> </td>
+				<td th:text="${temp.getCreditPoints()}"> </td>
+			</tr>
+		</table>
+	</body>
+</html>

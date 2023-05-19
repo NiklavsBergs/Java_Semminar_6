@@ -10,7 +10,7 @@ import lv.venta.models.Student;
 public interface IFilteringService {
 	ArrayList<Student> retrieveAllStudents();
 	ArrayList<Professor> retrieveAllProfessors();
-	ArrayList<Course> retrieveAllCourse();
+	ArrayList<Course> retrieveAllCourses();
 	ArrayList<Grade> retrieveAllGrades();
 	
 	ArrayList<Grade> retrieveGradesByStudentId(long id) throws Exception;
