@@ -48,8 +48,4 @@ public class Grade {
 		this.student = student;
 		this.course = course;
 	}
-
-	
-	
-	
 }

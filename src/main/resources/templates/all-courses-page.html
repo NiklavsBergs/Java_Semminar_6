@@ -6,6 +6,16 @@
 				<td th:text="${temp.getIdc()}"> </td>
 				<td th:text="${temp.getTitle()}"> </td>
 				<td th:text="${temp.getCreditPoints()}"> </td>
+				<td>
+					<ul>
+						<li th:each="prof : ${temp.getProfessors()}">
+							<span th:text="${prof.getName()}">Name</span>
+							<span th:text="${prof.getSurname()}">Name</span>
+							<span th:text="${prof.getDegree()}">Name</span>
+						</li>
+					</ul>
+				</td>
+
 			</tr>
 		</table>
 	</body>
