@@ -90,13 +90,14 @@ public class FilteringServiceImpl implements IFilteringService{
 	@Override
 	public float calculateAVGGradeInCourseId(long id) throws Exception{
 		if(id > 0) {
-			ArrayList<Grade> filteredGrades = gradeRepo.findByCourseIdc(id);
+			/*ArrayList<Grade> filteredGrades = gradeRepo.findByCourseIdc(id);
 			float sum = 0;
 			for(Grade temp: filteredGrades) {
 				sum += temp.getGvalue();
 			}
 		
-			return sum / filteredGrades.size();
+			return sum / filteredGrades.size();*/
+			return myCalculateAVGGradeByCourseId(id);
 		}
 		else {
 			throw new Exception("Incorrect id");
